@@ -259,7 +259,7 @@
 				<td>
 					Given an image \I_i\ and estimated depth map \D_j\ of \j\-th unobserved viewpoint, 
 					we warp the image \I_i\ to that novel viewpoint as \I_{i \rightarrow j}\ by establishing 
-					geometric correspondence between two viewpoints. 
+					geometric correspondence between two viewpoints. \(\mathcal{L}_\mathrm{dc}\)
 					Using the warped image as a pseudo ground truth, we cause rendered image of unseen viewpoint, 
 					\I_{j}\, to be consistent in structure with warped image, with occlusions taken into consideration.
 				</td>
@@ -271,7 +271,7 @@
 
 	<table align=center width=850px>
 		<center><h1>Qualitative Results</h1></center>
-		<center><h1><span style="font-size:25px">Sparsely Supervised Results on KITTI</span></h1></center>
+		<center><h1><span style="font-size:25px">Comparison on NeRF-Synthetic Datatest</span></h1></center>
 		<table align=center width=420px></table>
 		<tr>
 			<td align=center width=850px>
@@ -287,7 +287,7 @@
 					<td>
 						Qualitative comparison results in NeRF-Synthetic dataset demonstrate 
 						that our model shows superior performance to baseline <a href="https://arxiv.org/abs/2103.13415">mip-NeRF</a></span>  and previous state-of-the-art model, 
-						<a href="https://arxiv.org/abs/2112.00724">RegNeRF</a></span>}, in 3-view settings. 
+						<a href="https://arxiv.org/abs/2112.00724">RegNeRF</a></span>, in 3-view settings. 
 						We observe that our warping-based consistency enables GeCoNeRF to capture fine details that mip-NeRF and RegNeRF struggle to capture 
 						in same sparse view scenarios, as demonstrated with the \mic scene. 
 						Our method also displays higher stability in rendering smooth surfaces and reducing artifacts in background in comparison to previous models,
