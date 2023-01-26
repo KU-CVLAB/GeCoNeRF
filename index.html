@@ -248,7 +248,7 @@
 		<tr>
 			<td align=center width=1000px>
 				<center>
-					<td><img class="round" style="width:1000px" src="./resources/overview.pdf"/></td>
+					<td><img class="round" style="width:1000px" src="./resources/overview.png"/></td>
 				</center>
 			</td>
 		</tr>
@@ -276,7 +276,7 @@
 		<tr>
 			<td align=center width=850px>
 				<center>
-					<td><img class="round" style="width:850px" src="./resources/KITTI_sparse.png"/></td>
+					<td><img class="round" style="width:850px" src="./resources/comparison_other.png"/></td>
 				</center>
 			</td>
 		</tr>
@@ -285,13 +285,16 @@
 			<center>
 				<tr>
 					<td>
-						Quantitative results on the KITTI dataset in a sparsely-supervised setting. ‘Baseline’ only uses a sparse depth, and
-						‘Self’ indicates existing self-supervised strategies. ‘Ours’ indicates the proposed semi-supervised learning framework.
-						Our proposed method outperforms the baseline with any different number of data frames. 
-						As this amount is decreased further, performance begins to degrade rapidly. 
-						This is mostly due to the model's inability to learn the appropriate scale and structure of the scene with such sparse information. 
-						However, as the labels become sparser, the performance degradation of our proposed method progresses more slowly 
-						compared to the baseline or naive semi-supervised approach using self-supervised losses, and the performance gap gets larger.
+						Qualitative comparison results in NeRF-Synthetic dataset demonstrate 
+						that our model shows superior performance to baseline <a href="https://arxiv.org/abs/2103.13415">mip-NeRF</a></span>  and previous state-of-the-art model, 
+						<a href="https://arxiv.org/abs/2112.00724">RegNeRF</a></span>}, in 3-view settings. 
+						We observe that our warping-based consistency enables GeCoNeRF to capture fine details that mip-NeRF and RegNeRF struggle to capture 
+						in same sparse view scenarios, as demonstrated with the \mic scene. 
+						Our method also displays higher stability in rendering smooth surfaces and reducing artifacts in background in comparison to previous models,
+						as shown in the results of the \materials scene. 
+						We argue that these results demonstrate how our method, through generation of warped pseudo ground truth patches, 
+						is able to give the model local, scene-specific regularization that aids recovery of fine details, 
+						which previous few-shot NeRF models with their global, generalized priors were unable to accomplish. 
 					</td>
 				</tr>
 			</center>
@@ -312,11 +315,18 @@
 				</center>
 			</td>
 		</tr> -->
-		<center><h1><span style="font-size:25px">Domain Adoptation Result on vKITTI to KITTI</span></h1></center>
+		<center><h1><span style="font-size:25px">Ablation Results</span></h1></center>
 		<tr>
 			<td align=center width=850px>
 				<center>
-					<td><img class="round" style="width:850px" src="./resources/domain_adopt.png"/></td>
+					<td><img class="round" style="width:850px" src="./resources/ablation.png"/></td>
+				</center>
+			</td>
+		</tr>
+		<tr>
+			<td align=center width=850px>
+				<center>
+					<td><img class="round" style="width:850px" src="./resources/ablation_table.png"/></td>
 				</center>
 			</td>
 		</tr>
@@ -324,10 +334,12 @@
 			<center>
 				<tr>
 					<td>
-						Qualitative results on the KITTI dataset. (a), (c) RGB image, and (b), (d) depth map. Our framework proves to
-						work well in domain adaptation task on real-world images.
-						We simply apply our framework to unsupervised domain adaptation methods using virtual KITTI (vKITTI) and KITTI as synthetic 
-						and real datasets respectively. 
+						We validate the design choices in our model by performing both an ablative study. 
+						We observe that without the consistency modeling loss, 
+						our model suffers a sharp decrease in reconstruction fidelity both quantitatively 
+						and qualitatively. 
+						We also validate the inclusion of our occlusion mask, 
+						progressive modeling method and disparity regularization loss.
 					</td>
 				</tr>
 			</center>
@@ -341,7 +353,7 @@
 		<tr>
 			<td align=center width=850px>
 				<center>
-					<td><img class="round" style="width:900px" src="./resources/Comparison.png"/></td>
+					<td><img class="round" style="width:900px" src="./resources/comparison.png"/></td>
 				</center>
 			</td>
 		</tr>
@@ -350,11 +362,15 @@
 			<center>
 				<tr>
 					<td>
-						Quantitative results. comparing our method against the existing approaches on the Eigen split of the KITTI dataset, using improved ground truth.
-    					`Sup.', `Self.(M)', and `Self.(S)' indicate supervised, existing self-supervised strategies on video and stereo pairs, respectively. 
-						`Self.' denotes our proposed consistency regularization, which needs no stereo images or video sequences. 
-						`K', `C', and `F' indicate KITTI, Cityscapes, and FlyingThings3D, respectively. 'Mix' indicate the dataset proposed from <a href="https://arxiv.org/abs/2103.13413">DPT</a></span>, 
-						which is approximately 60 times larger than KITTI, which contains 1.4\(M\) images (DB.). `\(\ast\)' denotes ran by ourselves.
+						We quantify novel view synthesis quality using PSNR, 
+						Structural Similarity Index Measure (SSIM), LPIPS perceptual metric and "average" error metric 
+						introduced in <a href="https://arxiv.org/abs/2103.13415">mip-NeRF</a></span> to report 
+						the mean value of metrics for all scenes in each dataset. 
+						Quantitative results shows our model's competitive results in LLFF dataset, 
+						whose PSNR results show large increase in comparison to mip-NeRF baseline 
+						and competitive compared to RegNeRF. 
+						We see that our warping-based consistency modeling successfully prevents 
+						overfitting and artifacts, which allows our model to perform better quantitatively.
 					</td>
 				</tr>
 			</center>
@@ -366,11 +382,10 @@
 	<table align=center width=450px>
 		<center><h1>Paper and Supplementary Material</h1></center>
 		<tr>
-			<td><a href=""><img class="layered-paper-big" style="height:175px" src="./resources/paper.png"/></a></td>
-			<td><span style="font-size:14pt">J. Baek, G. Kim, S. Park,  <br> H. An, M. Poggi, S. Kim<br>
-				<b>Semi-Supervised Learning of Monocular Depth Estimation
-					via Consistency Regularization with K-way Disjoint Masking.</b><br>
-				(hosted on <a href="https://arxiv.org/abs/2212.10806">ArXiv</a>)<br>
+			<td><a href=""><img class="layered-paper-big" style="height:175px" src="./resources/frontpage.png"/></a></td>
+			<td><span style="font-size:14pt">M. Kwak, J. Song, <br> S. Kim<br>
+				<b>GeCoNeRF: Few-shot Neural Radiance Fields via Geometric Consistency</b><br>
+				(hosted on <a href="https://arxiv.org/abs/">ArXiv</a>)<br>
 				<span style="font-size:4pt"><a href=""><br></a>
 				</span>
 			</td>
@@ -394,9 +409,6 @@
 			<td width=400px>
 				<left>
 					<center><h1>Acknowledgements</h1></center>
-					This research was supported in part by <a href="https://www.hyundaimotorgroup.com/tech/1075">Autonomous Driving Center</a>, R&D Division, Hyundai Motor Company.
-
-					<br><br>
 
 					This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
 
