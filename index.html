@@ -122,7 +122,7 @@
 <head>
 
 	<title>GeCoNeRF</title>
-	<meta property="og:image" content="./resources/overview.pdf"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+	<meta property="og:image" content="./resources/overview.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
 	<meta property="og:title" content="GeCoNeRF: Few-shot Neural Radiance Fields via Geometric Consistency" />
 	<meta property="og:description" content="Paper description." />
 
@@ -147,7 +147,7 @@
 				<tr>
 					<td align=center width=100px>
 						<center>
-							<span style="font-size:24px"><a href=".">Minseop Matthew Kwak<sup>1</a></span>
+							<span style="font-size:24px"><a href=".">Minseop Kwak<sup>1</a></span>
 						</center>
 					</td>
 					<td align=center width=100px>
@@ -194,15 +194,16 @@
 			<tr>
 				<td width=850px>
 					<center>
-						<img class="round" style="width:850px" src="./resources/KITTI_qual.png"/>
+						<img class="round" style="width:850px" src="./resources/comparison_other.png"/>
 					</center>
-						Qualitative results on the KITTI dataset. (a) RGB image, predicted depth maps by (b), (d) baseline, and (c), (e)
-						ours using 100 and 10,000 labeled frames, respectively. <br><br>
+						Qualitative comparison on NeRF-Synthetic show that in 3-view setting, 
+						our method captures fine details more robustly, such as the wire in the \emph{mic} scene,
+						and produces less artifacts, as shown in background of the \emph{materials} scene compared to previous methods. 
+						We show GeCoNeRF's results (e) with its rendered depth (f). <br><br>
 					<center>
-						<img class="round" style="width:850px" src="./resources/NYU_qual.png"/>
+						<img class="round" style="width:850px" src="./resources/qual_comparison.png"/>
 					</center>
-						Qualitative results on the NYU-Depth-v2 dataset. (a) RGB image, (b) ground-truth depth map, and predicted depth
-						maps by (c), (e) baseline, and (d), (f) ours using 100 and 10,000 labeled frames, respectively.
+						Qualitative comparison with baseline mip-NeRF shows that our model learns of coherent depth and geometry in extremely sparse 3-view setting.
 				</td>
 			</tr>
 		</table>
@@ -256,11 +257,11 @@
 		<center>
 			<tr>
 				<td>
-					Given an image $I_i$ and estimated depth map $D_j$ of $j$-th unobserved viewpoint, 
-					we warp the image $I_i$ to that novel viewpoint as $I_{i \rightarrow j}$ by establishing 
+					Given an image \I_i\ and estimated depth map \D_j\ of \j\-th unobserved viewpoint, 
+					we warp the image \I_i\ to that novel viewpoint as \I_{i \rightarrow j}\ by establishing 
 					geometric correspondence between two viewpoints. 
 					Using the warped image as a pseudo ground truth, we cause rendered image of unseen viewpoint, 
-					$I_{j}$, to be consistent in structure with warped image, with occlusions taken into consideration.
+					\I_{j}\, to be consistent in structure with warped image, with occlusions taken into consideration.
 				</td>
 			</tr>
 		</center>
