@@ -216,12 +216,7 @@
 					</center>
 						Qualitative comparison on NeRF-Synthetic show that in 3-view setting, 
 						our method captures fine details more robustly
-						and produces less artifacts, as shown in background of the \(materials\) scene compared to previous methods. 
-						We show GeCoNeRF's results (e) with its rendered depth (f). <br><br>
-					<center>
-						<img class="round" style="width:850px" src="./resources/qual_comparison.png"/>
-					</center>
-						Qualitative comparison with baseline mip-NeRF shows that our model learns of coherent depth and geometry in extremely sparse 3-view setting.
+						and produces less artifacts compared to previous methods, as shown in \(materials\) scene and \(lego\) scene of NeRF-Synthetic dataset. <br><br>
 				</td>
 			</tr>
 		</table>
@@ -313,6 +308,24 @@
 						We argue that these results demonstrate how our method, through generation of warped pseudo ground truth patches, 
 						is able to give the model local, scene-specific regularization that aids recovery of fine details, 
 						which previous few-shot NeRF models with their global, generalized priors were unable to accomplish. 
+					</td>
+				</tr>
+			</center>
+		<center><h1><span style="font-size:25px">Comparison on LLFF Datatest</span></h1></center>
+		<table align=center width=420px></table>
+		<tr>
+			<td align=center width=850px>
+				<center>
+					<td><img class="round" style="width:850px" src="./resources/qual_comparison.png"/></td>
+				</center>
+			</td>
+		</tr>
+		</table>
+		<table align=center width=850px>
+			<center>
+				<tr>
+					<td>
+						Qualitative comparison on LLFF dataset with baseline mip-NeRF shows that our model learns of coherent depth and geometry in extremely sparse 3-view setting.
 					</td>
 				</tr>
 			</center>
